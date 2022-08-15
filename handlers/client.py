@@ -8,9 +8,16 @@ async def command_start(message : types.Message):
     await bot.send_message(message.from_user.id, 'Привет, это бот-PROВОДНИК. Здесь мы ответим на твои вопросы ;)',
     reply_markup=kb_user)
 
+
+#контакты
+@dp.message_handler(text='Контакты ☎️')
+async def contacts_text(message: types.Message):
+    await bot.send_message(message.from_user.id, 
+    'Наши контакты:', reply_markup=nav.contactsMenu)
+
 #вопросы
 
-@dp.message_handler(commands=['Вопросы'])
+@dp.message_handler(text='Вопросы 🤔')
 async def questions_provodnik_command(message : types.Message):
     await bot.send_message(message.from_user.id, 
     '   Нажми на вопрос, ответ на который тебя интересует:', reply_markup=nav.questionsMenu)
@@ -21,8 +28,8 @@ async def frstquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Желание учиться, трудолюбие и терпение. Из более материальных вещей - тетради для каждого предмета (причем лучше завести отдельные тетради для записи лекций и практических занятий), пишущие принадлежности (ручки, карандаши). О специфических вещах расскажут преподаватели на каждой из дисциплин.')
 
-@dp.callback_query_handler(text="secondtquestion")
-async def frstquest(message: types.Message):
+@dp.callback_query_handler(text="secondquestion")
+async def scndquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id,
     '''
@@ -38,47 +45,47 @@ async def frstquest(message: types.Message):
     — галстук любого цвета. ''')
 
 @dp.callback_query_handler(text="thirdquestion")
-async def frstquest(message: types.Message):
+async def thrdquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'О правах и обязанностях, а также о том, что нельзя делать, Вы можете узнать из этого документа: https://clck.ru/sGNev')
 
 @dp.callback_query_handler(text="fourthquestion")
-async def frstquest(message: types.Message):
+async def frthques(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Расписание сможете узнать у старосты или у куратора, а также оно всегда будет на специальном стенде вашего факультета.')
 
 @dp.callback_query_handler(text="fifthquestion")
-async def frstquest(message: types.Message):
+async def ffthquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Одна пара длится полтора часа, перерыв между парами - 10 минут, кроме большой перемены с 12:10 до 12:45.')
 
 @dp.callback_query_handler(text="sixthquestion")
-async def frstquest(message: types.Message):
+async def sxthquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Учеба только началась, но не волнуйся! Каникулы тоже будут😊 Графика пока нет, мы его добавим, как только он появится')
 
 @dp.callback_query_handler(text="seventhquestion")
-async def frstquest(message: types.Message):
+async def svnsquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Хочешь стать активистом? У тебя на факультете есть профком, обратись к нему, он тебе всё объяснит.')
 
 @dp.callback_query_handler(text="eighthquestion")
-async def frstquest(message: types.Message):
+async def eightsquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Максимально подробно об этом здесь: https://chesu.ru/sveden/files/Pologhenie_o_ballyno-reytingovoy_sisteme.FR12.pdf')
 
 @dp.callback_query_handler(text="ninethquestion")
-async def frstquest(message: types.Message):
+async def nnsquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Для входа в любой корпус у  вас обязательно должны быть с собой кампусная карта (сделайте ее до начала занятий, иначе приходится ждать в очереди) и студенческий билет. ')
 
 @dp.callback_query_handler(text="tenthquestion")
-async def frstquest(message: types.Message):
+async def tenquest(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_message(message.from_user.id, 'Напиши нам, мы поможем! https://vk.com/club212816706')
 
 #расположение
-@dp.message_handler(commands=['Расположение'])
+@dp.message_handler(text="Расположение корпусов 🗺")
 async def unic_place_command(message : types.Message):
     await bot.send_message(message.from_user.id, 'Выбери корпус:', reply_markup=nav.mainMenu)
 
@@ -134,6 +141,9 @@ async def fourth_unicpos(message: types.Message):
 Карбоновое поле
     '''
     )
+
+
+
 
 
 def questions_handlers_user(dp : Dispatcher):
