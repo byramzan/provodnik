@@ -52,7 +52,7 @@ async def thrdquest(message: types.Message):
 @dp.callback_query_handler(text="fourthquestion")
 async def frthques(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
-    await bot.send_message(message.from_user.id, 'Расписание сможете узнать у старосты или у куратора, а также оно всегда будет на специальном стенде вашего факультета.')
+    await bot.send_message(message.from_user.id, 'Расписание можно посмотреть здесь: https://clck.ru/zVYzz, а также оно всегда будет на специальном стенде вашего факультета.')
 
 @dp.callback_query_handler(text="fifthquestion")
 async def ffthquest(message: types.Message):
@@ -97,9 +97,9 @@ async def unicpos(message: types.Message):
     await bot.delete_message(message.from_user.id, message.message.message_id)
     await bot.send_location(message.from_user.id, latitude = 43.3115479708524, longitude = 45.70301498046677)
     await bot.send_message(message.from_user.id, '''
-Институт экономики и финансов 💰
+💰 Институт экономики и финансов 
 Исторический факультет 
-Медицинский институт 🩺
+🩺 Медицинский институт 
 Факультет иностранных языков 
 Филологический факультет
 Библиотека
@@ -124,10 +124,10 @@ async def third_unicpos(message: types.Message):
     await bot.send_location(message.from_user.id, latitude = 43.31542124706471, longitude = 45.724813999641974)
     await bot.send_message(message.from_user.id, '''
 Факультет географии и геоэкологии 
-Институт математики, физики и информационных технологий 🧮,
+🧮 Институт математики, физики и информационных технологий ,
 Актовый зал
-Бассейн (Женский) 🚺
-Лаборатория🥼 ''')
+🚺 Бассейн (Женский) 
+🥼 Лаборатория ''')
 
 @dp.callback_query_handler(text="fourthunicpos")
 async def fourth_unicpos(message: types.Message):
@@ -135,11 +135,11 @@ async def fourth_unicpos(message: types.Message):
     await bot.send_location(message.from_user.id, latitude = 43.32067076935024, longitude = 45.737301633520715)
     await bot.send_message(message.from_user.id, 
     '''
-Агротехнологический институт 👨‍💻
-Биолого-химический факультет 🧪
-Бассейн (мужской) 🚹
-Общежитие 🏘️
-Карбоновое поле 🍀
+👨‍💻 Агротехнологический институт 
+🧪 Биолого-химический факультет 
+🚹 Бассейн (мужской) 
+🏘️ Общежитие 
+🍀 Карбоновое поле 
     '''
     )
 
